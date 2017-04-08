@@ -1,7 +1,11 @@
 # httpie
 httpie running in docker alpine (python3+pip3+alpine+httpie)
 
-## Usage
+### Notes
+
+This is personal project to build httpie in alpine linux.
+
+### Usage
 
 ```bash
 $ alias http='docker run -ti --rm alpine/httpie'
