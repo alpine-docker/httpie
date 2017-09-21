@@ -1,6 +1,9 @@
 # httpie
 httpie running in docker alpine (python3+pip3+alpine+httpie)
 
+[![DockerHub Badge](http://dockeri.co/image/alpine/httpie)](https://hub.docker.com/r/alpine/httpie/)
+
+
 ### Notes
 
 This is personal project to build httpie in alpine linux.
