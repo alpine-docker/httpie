@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM alpine:edge
 
-RUN apk add --no-cache python3 && \
+RUN apk add --update --no-cache python3 && \
     pip3 install --upgrade pip setuptools httpie && \
     rm -r /root/.cache
 
