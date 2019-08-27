@@ -1,8 +1,24 @@
 # httpie
+
 httpie running in docker alpine (python3+pip3+alpine+httpie)
+
+Auto-trigger docker build for [httpie](https://github.com/jakubroztocil/httpie) when new release is announced
+
 
 [![DockerHub Badge](http://dockeri.co/image/alpine/httpie)](https://hub.docker.com/r/alpine/httpie/)
 
+
+### Github Repo
+
+https://github.com/alpine-docker/httpie
+
+### Daily Travis CI build logs
+
+https://travis-ci.org/alpine-docker/httpie
+
+### Docker image tags
+
+https://hub.docker.com/r/alpine/httpie/tags/
 
 ### Notes
 
@@ -67,3 +83,9 @@ Also, you can use its included help output:
 $ http --help
 ```
 
+# The Processes to build this image
+
+* Enable Travis CI cronjob on this repo to run build daily on master branch
+* Check if there are new tags/releases announced via Github REST API
+* Match the exist docker image tags via Hub.docker.io REST API
+* If not matched, build the image with latest version as tag and push to hub.docker.com
