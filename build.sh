@@ -15,7 +15,11 @@ Usage() {
 image="alpine/httpie"
 repo="jakubroztocil/httpie"
 
-latest=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
+if [[ ${CI} == 'true' ]]; then
+  latest=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
+else
+  latest=`curl -sL https://api.github.com/repos/${repo}/tags |jq -r ".[].name"|head -1`
+fi
 
 sum=0
 echo "Lastest release is: ${latest}"
@@ -33,7 +37,7 @@ if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   docker build --no-cache --build-arg VERSION=$latest -t ${image}:${latest} .
   docker tag ${image}:${latest} ${image}:latest
 
-  if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+  if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     docker push ${image}:${latest}
     docker push ${image}:latest
