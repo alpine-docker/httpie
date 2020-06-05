@@ -30,6 +30,28 @@ This is personal project to build httpie in alpine linux.
 $ alias http='docker run -ti --rm alpine/httpie'
 ```
 
+To use and persist a [`.netrc`](https://httpie.org/docs#netrc) file:
+
+```bash
+$ alias http='docker run -ti --rm -v ~/.netrc:/root/.netrc alpine/httpie'
+```
+
+A `.netrc` file must exist at `~` on the host.
+
+`/root/.netrc` is used because httpie is run as root in the container, and it
+looks to the user's home directory (`/root`) for the `.netrc` file.
+
+To use and persist a [`.httpie`](https://httpie.org/docs#config) configuration
+directory:
+
+```bash
+$ alias http='docker run -ti --rm -v ~/.httpie:/root/.httpie alpine/httpie'
+```
+
+The `~/.httpie` directory on the host will be created automatically if it does
+not exist already. You will notice a `~/.httpie/config.json` is created by
+httpie if one did not exist.
+
 This will create a temporary alias. In order to make it persist reboots,
 you can append this exact line to your `~/.bashrc` (or similar) like this:
 
