@@ -14,7 +14,7 @@ https://github.com/alpine-docker/httpie
 
 ### Daily Travis CI build logs
 
-https://travis-ci.org/alpine-docker/httpie
+https://travis-ci.com/alpine-docker/httpie
 
 ### Docker image tags
 
