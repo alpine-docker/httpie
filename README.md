@@ -28,12 +28,14 @@ This is personal project to build httpie in alpine linux.
 
 ```bash
 $ alias http='docker run -ti --rm alpine/httpie'
+$ alias https='docker run -ti --rm --entrypoint=https alpine/httpie'
 ```
 
 To use and persist a [`.netrc`](https://httpie.org/docs#netrc) file:
 
 ```bash
 $ alias http='docker run -ti --rm -v ~/.netrc:/root/.netrc alpine/httpie'
+$ alias https='docker run -ti --rm -v ~/.netrc:/root/.netrc --entrypoint=https alpine/httpie'
 ```
 
 A `.netrc` file must exist at `~` on the host.
@@ -46,6 +48,7 @@ directory:
 
 ```bash
 $ alias http='docker run -ti --rm -v ~/.httpie:/root/.httpie alpine/httpie'
+$ alias https='docker run -ti --rm -v ~/.httpie:/root/.httpie --entrypoint=https alpine/httpie'
 ```
 
 The `~/.httpie` directory on the host will be created automatically if it does
@@ -57,6 +60,7 @@ you can append this exact line to your `~/.bashrc` (or similar) like this:
 
 ```bash
 $ alias http >> ~/.bashrc
+$ alias https >> ~/.bashrc
 ```
 
 Running HTTPie is as simple as invoking it like this:
@@ -66,10 +70,11 @@ Running HTTPie is as simple as invoking it like this:
 Hello World:
 
 ```bash
-$ http httpie.org
+$ https httpie.io/hello
 ```
 
-Custom HTTP method and headers:
+Custom [HTTP method](https://httpie.io/docs#http-method), [HTTP headers](https://httpie.io/docs#http-headers) and [JSON](https://httpie.io/docs#json) data:
+
 
 ```bash
 $ http PUT example.org X-API-Token:123 name=John

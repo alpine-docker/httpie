@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3-alpine
 
 ARG VERSION
 RUN  python -m pip install --upgrade pip wheel httpie==${VERSION}
