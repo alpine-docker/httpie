@@ -113,6 +113,6 @@ $ http --help
 # The Processes to build this image
 
 * Enable Travis CI cronjob on this repo to run build daily on master branch
-* Check if there are new tags/releases announced via Github REST API
+* Check if there are new tags/releases announced via Github [httpie](https://github.com/httpie/httpie) REST API
 * Match the exist docker image tags via Hub.docker.io REST API
 * If not matched, build the image with latest version as tag and push to hub.docker.com
