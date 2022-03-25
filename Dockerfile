@@ -1,9 +1,7 @@
-FROM alpine
+FROM python:3.9-alpine
 
 ARG VERSION
-RUN apk add --update --no-cache py-pip && \
-    pip3 install --upgrade pip setuptools httpie==${VERSION} && \
-    rm -r /root/.cache
+RUN  python -m pip install --upgrade pip wheel httpie==${VERSION}
 
 ENTRYPOINT [ "http" ]
 CMD ["--help"]
