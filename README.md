@@ -1,5 +1,7 @@
 # httpie
 
+[If enjoy, please consider buying me a coffee.](https://www.buymeacoffee.com/ozbillwang)
+
 httpie running in docker alpine (python3+pip3+alpine+httpie)
 
 Auto-trigger docker build for [httpie](https://github.com/jakubroztocil/httpie) when new release is announced
