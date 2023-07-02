@@ -1,3 +1,7 @@
+# Notes
+
+This repo has been archived. Follow up repo at https://github.com/alpine-docker/multi-arch-libs/tree/master/httpie
+
 # httpie
 
 [If enjoy, please consider buying me a coffee.](https://www.buymeacoffee.com/ozbillwang)
